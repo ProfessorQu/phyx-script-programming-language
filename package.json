@@ -1,0 +1,25 @@
+{
+  "name": "phyx-script-programming-language",
+  "displayName": "Phyx Script Programming Language",
+  "description": "Extension for the Phyx Script Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "phyx-script",
+      "aliases": ["Phyx Script", "phyx-script"],
+      "extensions": [".phyx"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "phyx-script",
+      "scopeName": "main.phyx",
+      "path": "./syntaxes/phyx-script.tmLanguage.json"
+    }]
+  }
+}
