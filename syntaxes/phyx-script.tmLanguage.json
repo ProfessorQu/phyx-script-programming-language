@@ -2,31 +2,92 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Phyx Script",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#objects"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#builtin_functions"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#values"
+        }
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.phyx-script",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.phyx-script",
+                    "begin": "//",
+                    "end": "\n"
+                },
+                {
+                    "name": "comment.block.phyx-script",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        },
+        "objects": {
+            "name": "keyword.operator.phyx-script",
+            "match": "\\b(object)\\b"
+        },
+        "keywords": {
+            "name": "keyword.control.phyx-script",
+            "match": "\\b(if|in)\\b"
+        },
+		"builtin_functions": {
+            "patterns": [{
+                "name": "entity.name.function.phyx-script",
+                "match": "\\b(print|rgb|hsv|range|random|floor|ceil)\\b"
+            }]
 		},
-		"strings": {
-			"name": "string.quoted.double.phyx-script",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.phyx-script",
-					"match": "\\\\."
-				}
-			]
-		}
+        "functions": {
+            "patterns": [{
+                "match": "\\bfn\\b\\s*(\\w+)\\s*\\(",
+                "captures": {
+                    "0": { "name": "keyword.control.phyx-script" },
+                    "1": { "name": "entity.name.function.phyx-script" }
+                }
+            }]
+        },
+        "variables": {
+            "patterns": [{
+                "match": "\\blet\\b\\s*(\\w+)",
+                "captures": {
+                    "0": { "name": "keyword.operator.phyx-script" },
+                    "1": { "name": "variable.phyx-script" }
+                }
+            },
+            {
+                "match": "\\bfor\\b\\s*(\\w+)",
+                "captures": {
+                    "0": { "name": "keyword.operator.phyx-script" },
+                    "1": { "name": "variable.phyx-script" }
+                }
+            }]
+        },
+        "values": {
+            "patterns": [{
+                "name": "constant.numeric",
+                "match": "[+-]?([0-9]*[.])?[0-9]+"
+            },
+            {
+                "name": "constant.rgb-value",
+                "match": "\\b(lightgray|gainsboro|deeppink|blueviolet|orange|orangered|brown|mistyrose|seagreen|indianred|darkgrey|slateblue|lightgrey|sandybrown|green|cornsilk|lavender|darkkhaki|tan|steelblue|darkgreen|lightyellow|magenta|teal|navy|mediumaquamarine|linen|pink|plum|lightsalmon|salmon|violet|mediumorchid|rosybrown|azure|palevioletred|lightcyan|wheat|darkblue|olive|lightcoral|saddlebrown|peru|mediumvioletred|forestgreen|sienna|turquoise|dimgrey|palegoldenrod|honeydew|cyan|blue|palegreen|darkgoldenrod|darkred|rebeccapurple|aqua|lightseagreen|red|coral|slategray|orchid|lightgreen|olivedrab|darkmagenta|deepskyblue|cadetblue|tomato|khaki|darkorchid|lightblue|darksalmon|limegreen|yellowgreen|gold|grey|silver|dodgerblue|papayawhip|midnightblue|cornflowerblue|burlywood|ghostwhite|thistle|darkslateblue|lightsteelblue|darkcyan|powderblue|yellow|lightskyblue|dimgray|ivory|goldenrod|seashell|aliceblue|fuchsia|lightpink|darkslategrey|mediumpurple|mediumblue|lightgoldenrodyellow|antiquewhite|aquamarine|whitesmoke|royalblue)\\b"
+            }]
+        }
 	},
 	"scopeName": "main.phyx"
 }
