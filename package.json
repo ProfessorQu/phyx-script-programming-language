@@ -14,7 +14,11 @@
       "id": "phyx-script",
       "aliases": ["Phyx Script", "phyx-script"],
       "extensions": [".phyx"],
-      "configuration": "./language-configuration.json"
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "dark": "./icons/phyx-script.png",
+        "light": "./icons/phyx-script.png"
+      }
     }],
     "grammars": [{
       "language": "phyx-script",
