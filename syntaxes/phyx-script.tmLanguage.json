@@ -6,13 +6,10 @@
             "include": "#comments"
         },
         {
-            "include": "#objects"
-        },
-        {
             "include": "#keywords"
         },
         {
-            "include": "#values"
+            "include": "#constants"
         },
         {
             "include": "#builtin_functions"
@@ -39,13 +36,23 @@
                 }
             ]
         },
-        "objects": {
-            "name": "keyword.operator.phyx-script",
-            "match": "\\b(object)\\b"
-        },
         "keywords": {
             "name": "keyword.control.phyx-script",
-            "match": "\\b(if|in)\\b"
+            "match": "\\b(if|else|in|let|for|object)\\b"
+        },
+        "constants": {
+            "patterns": [{
+                "name": "constant.numeric",
+                "match": "[+-]?([0-9]*[.])?[0-9]+"
+            },
+            {
+                "name": "constant.rgb-value",
+                "match": "\\b(lightgray|gainsboro|deeppink|blueviolet|orange|orangered|brown|mistyrose|seagreen|indianred|darkgrey|slateblue|lightgrey|sandybrown|green|cornsilk|lavender|darkkhaki|tan|steelblue|darkgreen|lightyellow|magenta|teal|navy|mediumaquamarine|linen|pink|plum|lightsalmon|salmon|violet|mediumorchid|rosybrown|azure|palevioletred|lightcyan|wheat|darkblue|olive|lightcoral|saddlebrown|peru|mediumvioletred|forestgreen|sienna|turquoise|dimgrey|palegoldenrod|honeydew|cyan|blue|palegreen|darkgoldenrod|darkred|rebeccapurple|aqua|lightseagreen|red|coral|slategray|orchid|lightgreen|olivedrab|darkmagenta|deepskyblue|cadetblue|tomato|khaki|darkorchid|lightblue|darksalmon|limegreen|yellowgreen|gold|grey|silver|dodgerblue|papayawhip|midnightblue|cornflowerblue|burlywood|ghostwhite|thistle|darkslateblue|lightsteelblue|darkcyan|powderblue|yellow|lightskyblue|dimgray|ivory|goldenrod|seashell|aliceblue|fuchsia|lightpink|darkslategrey|mediumpurple|mediumblue|lightgoldenrodyellow|antiquewhite|aquamarine|whitesmoke|royalblue)\\b"
+            },
+            {
+                "name": "constant.language",
+                "match": "\\b(rect|circle|ring|true|false)\\b"
+            }]
         },
 		"builtin_functions": {
             "patterns": [{
@@ -69,34 +76,8 @@
             }]
         },
         "variables": {
-            "patterns": [{
-                "match": "\\blet\\b\\s*(\\w+)",
-                "captures": {
-                    "0": { "name": "keyword.operator.phyx-script" },
-                    "1": { "name": "variable.phyx-script" }
-                }
-            },
-            {
-                "match": "\\bfor\\b\\s*(\\w+)",
-                "captures": {
-                    "0": { "name": "keyword.operator.phyx-script" },
-                    "1": { "name": "variable.phyx-script" }
-                }
-            },
-            {
-                "match": "\\b(\\w+)\\b",
-                "name": "variable"
-            }]
-        },
-        "values": {
-            "patterns": [{
-                "name": "constant.numeric",
-                "match": "[+-]?([0-9]*[.])?[0-9]+"
-            },
-            {
-                "name": "constant.rgb-value",
-                "match": "\\b(lightgray|gainsboro|deeppink|blueviolet|orange|orangered|brown|mistyrose|seagreen|indianred|darkgrey|slateblue|lightgrey|sandybrown|green|cornsilk|lavender|darkkhaki|tan|steelblue|darkgreen|lightyellow|magenta|teal|navy|mediumaquamarine|linen|pink|plum|lightsalmon|salmon|violet|mediumorchid|rosybrown|azure|palevioletred|lightcyan|wheat|darkblue|olive|lightcoral|saddlebrown|peru|mediumvioletred|forestgreen|sienna|turquoise|dimgrey|palegoldenrod|honeydew|cyan|blue|palegreen|darkgoldenrod|darkred|rebeccapurple|aqua|lightseagreen|red|coral|slategray|orchid|lightgreen|olivedrab|darkmagenta|deepskyblue|cadetblue|tomato|khaki|darkorchid|lightblue|darksalmon|limegreen|yellowgreen|gold|grey|silver|dodgerblue|papayawhip|midnightblue|cornflowerblue|burlywood|ghostwhite|thistle|darkslateblue|lightsteelblue|darkcyan|powderblue|yellow|lightskyblue|dimgray|ivory|goldenrod|seashell|aliceblue|fuchsia|lightpink|darkslategrey|mediumpurple|mediumblue|lightgoldenrodyellow|antiquewhite|aquamarine|whitesmoke|royalblue)\\b"
-            }]
+            "match": "\\b(\\w+)\\b",
+            "name": "variable"
         }
 	},
 	"scopeName": "main.phyx"

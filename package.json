@@ -6,6 +6,11 @@
   "engines": {
     "vscode": "^1.90.0"
   },
+  "icon": "./icons/phyx-script.png",
+  "publisher": "phyx-script",
+  "repository": {
+    "url": "https://github.com/ProfessorQu/phyx-script-programming-language"
+  },
   "categories": [
     "Programming Languages"
   ],
