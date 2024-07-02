@@ -2,7 +2,7 @@
   "name": "phyx-script-programming-language",
   "displayName": "Phyx Script Programming Language",
   "description": "Extension for the Phyx Script Language",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.90.0"
   },
