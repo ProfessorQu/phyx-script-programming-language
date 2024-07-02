@@ -38,7 +38,7 @@
         },
         "keywords": {
             "name": "keyword.control.phyx-script",
-            "match": "\\b(if|else|in|let|for|object)\\b"
+            "match": "\\b(if|else|in|let|for|fn|object)\\b"
         },
         "constants": {
             "patterns": [{
@@ -57,18 +57,11 @@
 		"builtin_functions": {
             "patterns": [{
                 "name": "entity.name.function.phyx-script",
-                "match": "\\b(print|rgb|hsv|range|random|floor|ceil)\\b"
+                "match": "\\b(print|rgb|hsv|range|random|floor|ceil|abs|pow|sqrt)\\b"
             }]
 		},
         "functions": {
             "patterns": [{
-                "match": "\\bfn\\b\\s*(\\w+)\\s*\\(",
-                "captures": {
-                    "0": { "name": "keyword.control.phyx-script" },
-                    "1": { "name": "entity.name.function.phyx-script" }
-                }
-            },
-            {
                 "match": "\\b(\\w+)\\b\\s*\\(",
                 "captures": {
                     "1": { "name": "entity.name.function" }
