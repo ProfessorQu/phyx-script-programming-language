@@ -38,7 +38,7 @@
         },
         "keywords": {
             "name": "keyword.control.phyx-script",
-            "match": "\\b(if|else|in|let|for|fn|object)\\b"
+            "match": "\\b(if|else|in|let|for|fn|object|while)\\b"
         },
         "constants": {
             "patterns": [{
